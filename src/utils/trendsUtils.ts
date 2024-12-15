@@ -1,10 +1,8 @@
-const bingEndpoint = 'https://api.bing.microsoft.com/v7.0/news/trendingtopics';
-
-// Get Bing API key from environment variables
-const bingAPIKey = process.env.REACT_APP_BING_API_KEY;
-
 // Fetch trending topics from Bing News API
 export async function bingNewsTrends() {
+  const bingEndpoint = 'https://api.bing.microsoft.com/v7.0/news/trendingtopics';
+  const bingAPIKey = process.env.REACT_APP_BING_API_KEY;
+
   if (!bingAPIKey) {
     throw new Error('BING_API_KEY is not defined in environment variables');
   }

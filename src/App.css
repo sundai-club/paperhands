@@ -1,7 +1,10 @@
 .App {
   text-align: center;
   padding: 20px;
-  background: linear-gradient(45deg, #ff61d5, #7e61ff);
+  background: url('/public/background.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   min-height: 100vh;
   font-family: "Comic Sans MS", cursive, sans-serif;
 }
@@ -17,7 +20,7 @@
 
 .column {
   flex: 1;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 8px 0 #333, 0 15px 20px rgba(0, 0, 0, 0.3);
@@ -67,7 +70,7 @@ h2 {
 .matches-header {
   margin-bottom: 30px;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   border: 3px solid #333;
   box-shadow: 0 8px 0 #333;
