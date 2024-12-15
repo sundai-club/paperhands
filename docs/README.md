@@ -1,6 +1,6 @@
 `coinmarketcap_scrape.xlsx`
 - Scraped 12/15/24
-- Used Dev Console to pull from [this list](https://coinmarketcap.com/tokens/views/all/) (API was terrible...)
+- Used Dev Console to pull from [this list](https://coinmarketcap.com/tokens/views/all/) ([API](https://coinmarketcap.com/api/documentation/v1/#section/Endpoint-Overview) was terrible...)
 ```javascript
 
 v = document.querySelectorAll("tr.cmc-table-row")
