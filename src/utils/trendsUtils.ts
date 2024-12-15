@@ -14,8 +14,8 @@ export async function bingNewsTrends() {
   try {
     const response = await fetch(bingEndpoint, { method: 'GET', headers: headers });
     if (response.ok) {
-      const data = await response.json();
-      console.log(data);
+      const trends = await response.json();
+      return(trends);
     } else {
       console.error(`Error: ${response.status} - ${response.statusText}`);
     }

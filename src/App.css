@@ -1,5 +1,58 @@
 .App {
   text-align: center;
+  padding: 20px;
+}
+
+.columns-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.column {
+  flex: 1;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.list-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  padding: 12px;
+  margin: 8px 0;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .columns-container {
+    flex-direction: column;
+  }
+  
+  .column {
+    margin-bottom: 20px;
+  }
 }
 
 .App-logo {
@@ -35,4 +88,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.matches-header {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+.matches-header h1 {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
 }

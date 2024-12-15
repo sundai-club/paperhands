@@ -16,8 +16,7 @@ export const mostPopularCoins = async () => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const coins = await response.json();
-    console.log(coins);
-    return coins;
+    return(coins);
   } catch (error) {
     console.error('Error fetching coins:', error);
   }
