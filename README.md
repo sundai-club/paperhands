@@ -1,3 +1,7 @@
+# Recommended reading
+- https://moxie.org/2022/01/07/web3-first-impressions.html
+  - Raises interesting question about on-chain/de-centralized vs off-chain/centralized
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
