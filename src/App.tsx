@@ -42,9 +42,9 @@ function App() {
     <div className="App">
       <div className="matches-header">
         {matches.length > 0 ? (
-          <h1>Found matching words: {matches.join(', ')}</h1>
+          <h1 className="no-matches">Found matching words: {matches.join(', ')}</h1>
         ) : (
-          <h1>No coins match a trending topic</h1>
+          <h1>No coins match a trending topic 😩</h1>
         )}
       </div>
       <div className="columns-container">

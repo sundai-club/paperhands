@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   padding: 20px;
+  background: linear-gradient(45deg, #ff61d5, #7e61ff);
+  min-height: 100vh;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .columns-container {
@@ -9,20 +12,31 @@
   max-width: 1200px;
   margin: 0 auto;
   gap: 40px;
+  animation: floatIn 1s ease-out;
 }
 
 .column {
   flex: 1;
-  background-color: #f5f5f5;
-  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 0 #333, 0 15px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: 3px solid #333;
+}
+
+.column:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 13px 0 #333, 0 20px 25px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
   color: #333;
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 28px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #ff61d5;
+  letter-spacing: 2px;
 }
 
 .list-container {
@@ -35,14 +49,38 @@ h2 {
   padding: 12px;
   margin: 8px 0;
   background-color: white;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 #333;
+  transition: all 0.2s ease;
+  border: 2px solid #333;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
 }
 
 .list-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05) rotate(-2deg);
+  background-color: #fff700;
+  box-shadow: 5px 5px 0 #333;
+}
+
+.matches-header {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  border: 3px solid #333;
+  box-shadow: 0 8px 0 #333;
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow: visible !important;
+}
+
+.matches-header h1 {
+  font-size: 32px;
+  color: #333;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #ff61d5;
 }
 
 @media (max-width: 768px) {
@@ -51,8 +89,50 @@ h2 {
   }
   
   .column {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% { 
+    transform: scale(0.9); 
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes floatIn {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Rainbow effect on hover for list items */
+.list-item:hover {
+  animation: rainbow-bg 2s linear infinite;
+}
+
+@keyframes rainbow-bg {
+  0% { background-color: #ff61d5; }
+  20% { background-color: #ff61a0; }
+  40% { background-color: #ff9c61; }
+  60% { background-color: #ffdb61; }
+  80% { background-color: #7e61ff; }
+  100% { background-color: #ff61d5; }
 }
 
 .App-logo {
@@ -90,15 +170,180 @@ h2 {
   }
 }
 
-.matches-header {
-  margin-bottom: 30px;
-  padding: 20px;
-  background-color: #f0f0f0;
-  border-radius: 8px;
+.no-matches {
+  animation: crazyText 0.3s linear infinite, 
+             violentShake 0.05s linear infinite,
+             rainbowText 0.5s linear infinite,
+             blurText 0.2s linear infinite,
+             spinText 1s linear infinite,
+             bounceText 0.4s linear infinite,
+             earthquakeEffect 0.1s linear infinite,
+             crazyOutline 0.2s linear infinite;
+  text-shadow: 3px 3px 0 #ff0000,
+               -3px -3px 0 #00ff00,
+               6px 6px 0 #0000ff,
+               -6px -6px 0 #ff00ff,
+               9px 0px 0 #00ffff,
+               0px -9px 0 #ffff00;
+  font-size: 45px !important;
+  letter-spacing: 5px;
+  font-style: italic;
+  filter: contrast(150%) brightness(120%);
+  transform-origin: center;
+  border: 4px solid transparent;
+  border-radius: 10px;
+  position: relative;
+  padding: 0 10px;
 }
 
-.matches-header h1 {
-  font-size: 24px;
-  color: #333;
-  margin: 0;
+@keyframes violentShake {
+  0% { transform: translate(8px, 8px) rotate(3deg); }
+  10% { transform: translate(-8px, -8px) rotate(-3deg); }
+  20% { transform: translate(-10px, 0px) rotate(3deg); }
+  30% { transform: translate(10px, 10px) rotate(-3deg); }
+  40% { transform: translate(8px, -8px) rotate(3deg); }
+  50% { transform: translate(-8px, 8px) rotate(-3deg); }
+  60% { transform: translate(-10px, -10px) rotate(3deg); }
+  70% { transform: translate(10px, 0px) rotate(-3deg); }
+  80% { transform: translate(-8px, 10px) rotate(3deg); }
+  90% { transform: translate(8px, -10px) rotate(-3deg); }
+  100% { transform: translate(0px, 0px) rotate(3deg); }
+}
+
+@keyframes earthquakeEffect {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  10% { transform: translate(-5px, -5px) rotate(2deg); }
+  20% { transform: translate(7px, 4px) rotate(-3deg); }
+  30% { transform: translate(4px, -7px) rotate(1deg); }
+  40% { transform: translate(-5px, 5px) rotate(-2deg); }
+  50% { transform: translate(5px, -4px) rotate(3deg); }
+  60% { transform: translate(-4px, 7px) rotate(-1deg); }
+  70% { transform: translate(7px, -5px) rotate(2deg); }
+  80% { transform: translate(-7px, 4px) rotate(-3deg); }
+  90% { transform: translate(4px, 5px) rotate(1deg); }
+}
+
+/* Update existing animations to be more extreme */
+@keyframes crazyText {
+  0% { transform: scale(1.2) rotate(0deg) skew(0deg); }
+  25% { transform: scale(1.4) rotate(-15deg) skew(15deg); }
+  50% { transform: scale(0.7) rotate(15deg) skew(-15deg); }
+  75% { transform: scale(1.6) rotate(-20deg) skew(-10deg); }
+  100% { transform: scale(1.2) rotate(0deg) skew(0deg); }
+}
+
+/* Make the background shake too */
+.matches-header:has(.no-matches) {
+  animation: pulseBackground 0.5s linear infinite,
+             headerShake 0.1s linear infinite;
+}
+
+@keyframes headerShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Make the whole page shake when hovering over the no-matches text */
+.no-matches:hover ~ * {
+  animation: panicMode 0.1s linear infinite;
+}
+
+/* Update panic mode to be more extreme */
+@keyframes panicMode {
+  0% { transform: scale(1.02) rotate(2deg) translateX(5px); }
+  25% { transform: scale(0.98) rotate(-2deg) translateX(-5px); }
+  50% { transform: scale(1.02) rotate(2deg) translateX(5px); }
+  75% { transform: scale(0.98) rotate(-2deg) translateX(-5px); }
+  100% { transform: scale(1.02) rotate(2deg) translateX(5px); }
+}
+
+/* Add a pulsing background to the header when no matches */
+.matches-header:has(.no-matches) {
+  animation: pulseBackground 0.5s linear infinite;
+  background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+  background-size: 200% 200%;
+}
+
+@keyframes pulseBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Make nearby elements react to the chaos */
+.no-matches:hover ~ .columns-container {
+  animation: panicMode 0.2s linear infinite;
+}
+
+@keyframes panicMode {
+  0% { transform: scale(1.01) rotate(1deg); }
+  50% { transform: scale(0.99) rotate(-1deg); }
+  100% { transform: scale(1.01) rotate(1deg); }
+}
+
+/* Add crazy outline animation */
+@keyframes crazyOutline {
+  0% { 
+    border-color: #ff0000;
+    border-style: solid;
+    border-width: 4px 2px 6px 4px;
+  }
+  25% { 
+    border-color: #00ff00;
+    border-style: dashed;
+    border-width: 6px 4px 2px 6px;
+  }
+  50% { 
+    border-color: #0000ff;
+    border-style: double;
+    border-width: 2px 6px 4px 2px;
+  }
+  75% { 
+    border-color: #ff00ff;
+    border-style: dotted;
+    border-width: 4px 6px 2px 4px;
+  }
+  100% { 
+    border-color: #ff0000;
+    border-style: solid;
+    border-width: 4px 2px 6px 4px;
+  }
+}
+
+/* Add a pseudo-element for an extra shaking outline */
+.no-matches::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  animation: crazyOutline2 0.3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes crazyOutline2 {
+  0% { 
+    transform: translate(2px, 2px);
+    border-color: rgba(255, 0, 0, 0.5);
+  }
+  25% { 
+    transform: translate(-2px, -2px);
+    border-color: rgba(0, 255, 0, 0.5);
+  }
+  50% { 
+    transform: translate(-2px, 2px);
+    border-color: rgba(0, 0, 255, 0.5);
+  }
+  75% { 
+    transform: translate(2px, -2px);
+    border-color: rgba(255, 0, 255, 0.5);
+  }
+  100% { 
+    transform: translate(2px, 2px);
+    border-color: rgba(255, 0, 0, 0.5);
+  }
 }
