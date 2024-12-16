@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  padding: 10vh 75px 20px 75px;
+  padding: 5vh 75px 20px 75px;
   background: url('/public/background.png');
   background-size: cover;
   background-position: center;
@@ -394,4 +394,118 @@ h2 {
     bottom: -100px;
     transform: rotate(0deg);
   }
+}
+
+/* Add toggle switch styles */
+.sort-toggle {
+  position: relative;
+  margin: 20px auto;
+  width: fit-content;
+  z-index: 1000;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  border: 3px solid #333;
+  box-shadow: 0 4px 0 #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: 0.4s;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 10px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-weight: bold;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 34px;
+  width: 150px;
+  left: 3px;
+  bottom: 1px;
+  background-color: #ff61d5;
+  transition: 0.4s;
+  border-radius: 17px;
+  border: 2px solid #333;
+}
+
+.switch:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #333;
+}
+
+.switch:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #333;
+}
+
+input:checked + .slider:before {
+  transform: translateX(140px);
+}
+
+.slider-text {
+  color: #333;
+  z-index: 1;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: color 0.4s;
+}
+
+input:checked + .slider .market-cap {
+  color: #666;
+}
+
+input:not(:checked) + .slider .volume {
+  color: #666;
+}
+
+/* Add hover animation */
+.switch:hover .slider:before {
+  animation: rainbow-bg 2s linear infinite;
+}
+
+.gpt-recommendation {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 24px;
+  color: #ff61d5;
+  margin-top: 20px;
+  text-shadow: 1px 1px 0 #333;
+  animation: floatIn 0.5s ease-out;
+}
+
+.gpt-loading {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 24px;
+  color: #7e61ff;
+  margin-top: 20px;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
