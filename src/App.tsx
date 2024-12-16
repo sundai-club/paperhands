@@ -40,6 +40,9 @@ function App() {
 
   return (
     <div className="App">
+      <div className="pepe-container">
+        <img src={process.env.PUBLIC_URL + '/pepe.png'} alt="pepe" />
+      </div>
       <div className="matches-header">
         {matches.length > 0 ? (
           <h1 className="no-matches">Found matching words: {matches.join(', ')}</h1>
